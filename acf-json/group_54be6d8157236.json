@@ -1,0 +1,155 @@
+{
+    "key": "group_54be6d8157236",
+    "title": "Song Data",
+    "fields": [
+        {
+            "key": "field_527408e2ad0ca",
+            "label": "ChordPro",
+            "name": "chordpro",
+            "prefix": "",
+            "type": "textarea",
+            "instructions": "Enter song in chordpro format. Chord inline wrapped in brackets, [C].",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "new_lines": "",
+            "readonly": 0,
+            "disabled": 0,
+            "rows": ""
+        },
+        {
+            "key": "field_52fad8ad57a59",
+            "label": "Song Part",
+            "name": "song_part",
+            "prefix": "",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "button_label": "Add Song Part",
+            "min": "",
+            "max": "",
+            "layouts": [
+                {
+                    "key": "54be6d8168f1c",
+                    "name": "song_part",
+                    "label": "Song Part",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_52fad8ef57a5b",
+                            "label": "Song Part Title",
+                            "name": "song_part_title",
+                            "prefix": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Verse",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "formatting": "html",
+                            "maxlength": "",
+                            "readonly": 0,
+                            "disabled": 0
+                        },
+                        {
+                            "key": "field_52fad8c557a5a",
+                            "label": "Song Part Content",
+                            "name": "song_part_content",
+                            "prefix": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": "",
+                            "new_lines": "",
+                            "readonly": 0,
+                            "disabled": 0,
+                            "rows": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "54be6d816eeca",
+                    "name": "repeat_song_part",
+                    "label": "Repeat Song Part",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_52fad92a57a5d",
+                            "label": "Song Repeat Title",
+                            "name": "song_repeat_title",
+                            "prefix": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Chorus",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "formatting": "html",
+                            "maxlength": "",
+                            "readonly": 0,
+                            "disabled": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "song"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "custom_fields",
+        "format"
+    ],
+    "modified": 1429618077
+}
