@@ -100,16 +100,16 @@ get_header(); ?>
 			// 	//add guitar chords via custom field or taxonomy and do_shortcode or just use the jtab js.
 			// 	echo do_shortcode($shortcode);
 			// }
-			echo '<div class="jtabs">';
-				foreach ( $chords as $chord ) {
-					$shortcode = '[jtab phrase="' . $chord . '"]';
-					echo do_shortcode($shortcode);
-				}				
+			// echo '<div class="jtabs">';
+			// 	foreach ( $chords as $chord ) {
+			// 		$shortcode = '[jtab phrase="' . $chord . '"]';
+			// 		echo do_shortcode($shortcode);
+			// 	}				
 				//$chords_string = join( " ", $chords );
 				//$shortcode = '[jtab phrase="' . $chords_string . '"]';
 				//add guitar chords via custom field or taxonomy and do_shortcode or just use the jtab js.
 				//echo do_shortcode($shortcode);
-			echo '</div>';
+			// echo '</div>';
 			//genre
 
 			/* translators: used between list items, there is a space after the comma */
