@@ -1,0 +1,14 @@
+{
+	"name": "Music",
+	"short_name": "Music",
+	"lang": "en-US",
+	"start_url": "/music/",
+	"scope": "/music/",
+	"display": "standalone",
+	"theme_color": "#000000",
+	"icons": [{
+		"src": "/music/wp-content/themes/songbook-theme/img/music-note.jpg",
+		"sizes": "350x350",
+		"type": "image/jpg"
+	}]
+}

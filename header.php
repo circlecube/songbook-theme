@@ -15,6 +15,21 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
+<link rel="manifest" href="manifest.json">
+
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Music">
+<meta name="apple-mobile-web-app-title" content="Music">
+<meta name="theme-color" content="#000000">
+<meta name="msapplication-navbutton-color" content="#000000">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="msapplication-starturl" content="/music/">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" type="image/jpg" sizes="350x350" href="/music/wp-content/themes/songbook-theme/img/music-note.jpg">
+<link rel="apple-touch-icon" type="image/jpg" sizes="350x350" href="/music/wp-content/themes/songbook-theme/img/music-note.jpg">
+
 <?php wp_head(); ?>
 </head>
 
