@@ -6,7 +6,6 @@
             "key": "field_527408e2ad0ca",
             "label": "ChordPro",
             "name": "chordpro",
-            "prefix": "",
             "type": "textarea",
             "instructions": "Enter song in chordpro format. Chord inline wrapped in brackets, [C].",
             "required": 0,
@@ -28,7 +27,6 @@
             "key": "field_52fad8ad57a59",
             "label": "Song Part",
             "name": "song_part",
-            "prefix": "",
             "type": "flexible_content",
             "instructions": "",
             "required": 0,
@@ -52,7 +50,6 @@
                             "key": "field_52fad8ef57a5b",
                             "label": "Song Part Title",
                             "name": "song_part_title",
-                            "prefix": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -75,7 +72,6 @@
                             "key": "field_52fad8c557a5a",
                             "label": "Song Part Content",
                             "name": "song_part_content",
-                            "prefix": "",
                             "type": "textarea",
                             "instructions": "",
                             "required": 0,
@@ -107,7 +103,6 @@
                             "key": "field_52fad92a57a5d",
                             "label": "Song Repeat Title",
                             "name": "song_repeat_title",
-                            "prefix": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -131,6 +126,25 @@
                     "max": ""
                 }
             ]
+        },
+        {
+            "key": "field_5e9a21f237745",
+            "label": "Vex Tab",
+            "name": "vextab",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "options space=20\r\ntabstave\r\nnotation=true\r\nkey=A time=4\/4\r\n\r\nnotes :q =|: (5\/2.5\/3.7\/4) :8 7-5h6\/3 ^3^ 5h6-7\/5 ^3^ :q 7V\/4 |\r\nnotes :8 t12p7\/4 s5s3\/4 :8 3s:16:5-7\/5 :h p5\/4\r\ntext :w, |#segno, ,|, :hd, , #tr\r\n\r\noptions space=25",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 20,
+            "new_lines": ""
         }
     ],
     "location": [
@@ -148,8 +162,9 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": [
-        "custom_fields",
         "format"
     ],
-    "modified": 1429618077
+    "active": 1,
+    "description": "",
+    "modified": 1587159602
 }

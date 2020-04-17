@@ -22,69 +22,76 @@ get_header(); ?>
 			<?php songbook_posted_on(); ?>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
-	<div class="chordpro-content">
+	
+	<?php if ( get_field('chordpro') ) { ?>
+		<div class="chordpro-content">
+			<?php echo print_chordpro( get_field('chordpro') ); ?>
+		</div>
+	<?php } ?>
+
+	<?php if ( have_rows('song_part') ) { ?>
+		<div class="song-parts">
 		<?php
-			if ( get_field('chordpro') ) {
-				echo print_chordpro( get_field('chordpro') );
-			}
-		?>
-	</div>
-	<div class="song-parts">
-	<?php
-	if ( have_rows('song_part') ) {
-		$song_parts = [];
-		while ( have_rows('song_part') ){
-			the_row();
-			if( get_row_layout() == 'song_part' ){
-				// the_sub_field('song_part_title');
-				// echo print_chordpro( get_sub_field('song_part_content') );
-				//if song part. create song part object and then add to song_parts array
-				/*
-				$array = [
-				    "foo" => "bar",
-				    "bar" => "foo",
-				];
-				*/
-				$song_part = [
-					"title" => get_sub_field('song_part_title'),
-					"chordpro" => print_chordpro( get_sub_field('song_part_content') ),
-				];
-				//$song_part->title = get_sub_field('song_part_title');
-				//$song_part->chordpro = print_chordpro( get_sub_field('song_part_content') );
-        		$song_parts[] = $song_part;
-        		echo '<div class="chordpro-content">';
-        		//echo '<h3>'.$song_part["title"].'</h3>';
-        		echo $song_part["chordpro"];
-        		echo '</div>';
-        	}
-        	elseif( get_row_layout() == 'repeat_song_part' ){
-        		//if repeat. get song parts array that matches name and echo it's content out.
-        		//if ( get_sub_field('song_repeat_title') ) {
+			$song_parts = [];
+			while ( have_rows('song_part') ){
+				the_row();
+				if( get_row_layout() == 'song_part' ){
+					// the_sub_field('song_part_title');
+					// echo print_chordpro( get_sub_field('song_part_content') );
+					//if song part. create song part object and then add to song_parts array
+					$song_part = [
+						"title" => get_sub_field('song_part_title'),
+						"chordpro" => print_chordpro( get_sub_field('song_part_content') ),
+					];
+					//$song_part->title = get_sub_field('song_part_title');
+					//$song_part->chordpro = print_chordpro( get_sub_field('song_part_content') );
+					$song_parts[] = $song_part;
+					echo '<div class="chordpro-content">';
+					//echo '<h3>'.$song_part["title"].'</h3>';
+					echo $song_part["chordpro"];
+					echo '</div>';
+				}
+				elseif( get_row_layout() == 'repeat_song_part' ){
+					//if repeat. get song parts array that matches name and echo it's content out.
+					//if ( get_sub_field('song_repeat_title') ) {
 
-        		echo '<div class="chordpro-content">';
-        			//echo '<h3>Repeat ' . get_sub_field('song_repeat_title').'</h3>';
-        			for ($i=0; $i<count($song_parts); $i++){
-        				$song_part = $song_parts[$i];
-        				if ( get_sub_field('song_repeat_title') == $song_part["title"] ) {
-        					echo $song_part["chordpro"];
-        				}
-        			}
-        		echo '</div>';
-        		//}
-        	}
- 
- 
+					echo '<div class="chordpro-content">';
+						//echo '<h3>Repeat ' . get_sub_field('song_repeat_title').'</h3>';
+						for ($i=0; $i<count($song_parts); $i++){
+							$song_part = $song_parts[$i];
+							if ( get_sub_field('song_repeat_title') == $song_part["title"] ) {
+								echo $song_part["chordpro"];
+							}
+						}
+					echo '</div>';
+					//}
+				}
+			}//endwhile
+			//$chordpro_html = print_chordpro( get_field('chordpro') );
+			//print song
+			//echo $chordpro_html;
+			?>
+		</div>
+	<?php }//endif ?>
 
-		}//endwhile
-		//$chordpro_html = print_chordpro( get_field('chordpro') );
-		//print song
-		//echo $chordpro_html;
-	}//endif
-	?>
-	</div>
 	<div class="entry-content">
 		<?php the_content(); ?>
 	</div><!-- .entry-content -->
+
+	<!-- https://vexflow.com/vextab/tutorial.html -->
+	<?php if ( get_field('vextab') ) { ?>
+		<div 
+			class="vex-tabdiv"
+			width=680 
+			scale=1.0 
+			editor="true"
+			editor_width=680 
+			editor_height=330
+		>
+			<?php the_field('vextab'); ?>
+		</div>
+	<?php } ?>
+
 
 	<footer class="entry-meta">
 		<?php

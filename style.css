@@ -700,3 +700,12 @@ header .entry-meta {
 	background: #222;
 }
 
+
+.colorscheme_dark svg path,
+.colorscheme_dark svg rect {
+	fill: #ccc !important;
+}
+
+.vex-tabdiv .editor {
+	display: none;
+}

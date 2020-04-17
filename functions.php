@@ -87,13 +87,13 @@ function songbook_scripts() {
 	wp_register_style('mmenu', get_template_directory_uri() . '/js/mmenu-4.0.3/source/jquery.mmenu.all.css');
     wp_enqueue_style( 'mmenu');
 
-	//wp_enqueue_script( 'songbook-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
     wp_enqueue_script( 'mmenu', get_template_directory_uri() . '/js/mmenu-4.0.3/source/jquery.mmenu.min.all.js', array(), '20131108', true );
 
     wp_enqueue_script( 'songbook-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-    // wp_enqueue_script( 'phonegap', '/phonegap.js' );
-    // wp_enqueue_script( 'GAPlugin', '/GAPlugin.js' );
-    // wp_enqueue_script( 'plugins', '/js/plugins.js' );
+
+	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ), '20130723', true );
+
+	wp_enqueue_script( 'vextab', get_template_directory_uri() . '/js/vextab-div.js', array( 'scripts' ), '20200415', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -103,22 +103,9 @@ function songbook_scripts() {
 		wp_enqueue_script( 'songbook-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
 	}
 
-
-	// load scripts
-	if ( !is_admin() ) {
-		$scriptdir = get_template_directory_uri();
-		$scriptdir .= '/js/';
-		//wp_enqueue_script('hoverIntent');
-		wp_enqueue_script('scripts', $scriptdir . 'scripts.js', array('jquery'), '20130723' );
-		//wp_enqueue_script('cycle2', $scriptdir . 'jquery.cycle2.min.js', array('jquery'), '20130709' );
-		//wp_enqueue_script('isotope', $scriptdir . 'jquery.isotope.min.js', array('jquery'), '20131111' );
-		//wp_enqueue_script('debouncedresize', $scriptdir . 'jquery.debouncedresize.js', array('jquery'), '20131111' );
-	    //wp_enqueue_script( 'scrollto', $scriptdir . 'jquery.scrollTo-1.4.3.1-min.js', array('jquery'), '20131003' );   
-	    //wp_enqueue_script( 'localscroll', $scriptdir . 'jquery.localscroll-1.2.7-min.js', array('jquery'), '20131003' );     
-	    //wp_enqueue_script( 'html5shiv', $scriptdir . 'html5.js', array('jquery'), '20131007' );     
-	}
 }
 add_action( 'wp_enqueue_scripts', 'songbook_scripts' );
+
 
 /**
  * Implement the Custom Header feature.

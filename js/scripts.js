@@ -41,3 +41,5 @@ jQuery(document).ready(function($) {
 	}
 
 });
+
+const VEXTAB_USE_SVG = true;
