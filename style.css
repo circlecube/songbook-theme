@@ -4,7 +4,7 @@ Theme URI: https://circlecube.com/music
 Author: Evan Mullins
 Author URI: http://circlecube.com/
 Description: Description
-Version: 1.1
+Version: 1.2
 License: GNU General Public License
 License URI: license.txt
 Text Domain: songbook
@@ -689,23 +689,31 @@ header .entry-meta {
 	color: #eee;
 }
 
-.colorscheme_dark path {
-	stroke: #ccc !important;
-}
-.colorscheme_dark text {
-	stroke: #333 !important;
-	fill: #ccc !important;
-}
 .colorscheme_dark .site-main .song-list a {
 	background: #222;
 }
 
 
-.colorscheme_dark svg path,
-.colorscheme_dark svg rect {
-	fill: #ccc !important;
+.colorscheme_dark .vex-tabdiv svg path[fill="black"],
+.colorscheme_dark .vex-tabdiv svg rect[fill="black"] {
+	fill: #fff !important;
+}
+.colorscheme_dark .vex-tabdiv svg path[stroke="black"],
+.colorscheme_dark .vex-tabdiv svg rect[stroke="black"] {
+	stroke: #fff !important;
+}
+.colorscheme_dark .vex-tabdiv text {
+	fill: #fff !important;
+}
+
+.vex-tabdiv text[font-family="Times"] {
+	display: none;
 }
 
 .vex-tabdiv .editor {
 	display: none;
+}
+.colorscheme_dark .vex-tabdiv .editor {
+	background: #111;
+	color: #fff;
 }
