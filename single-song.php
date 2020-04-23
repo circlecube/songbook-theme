@@ -81,7 +81,7 @@ get_header(); ?>
 	<!-- https://vexflow.com/vextab/tutorial.html -->
 	<?php if ( get_field('vextab') ) { ?>
 		<div 
-			class="vex-tabdiv"
+			class="vextab-auto"
 			width=680 
 			scale=1.0 
 			editor="true"
