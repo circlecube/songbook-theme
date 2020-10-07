@@ -107,6 +107,7 @@ get_header(); ?>
 					?>
 						{
 							name: '<?php echo $term->name; ?>',
+							id: '<?php echo $term->term_id; ?>',
 							edit_link: '<?php echo get_edit_term_link( $term->term_id, 'chord' );?>',
 							<?php //echo get_field( 'chord_data', $term ); ?>
 							chord: [<?php

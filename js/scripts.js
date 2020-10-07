@@ -47,7 +47,7 @@ const ChordBox = vexchords.ChordBox;
 const chords = [];
 
 function createChordElement(chordStruct) {
-	const id = 'chord-'+chordStruct.name
+	const id = 'chord-'+chordStruct.id;
 	const chordbox = document.createElement("div");
 	chordbox.setAttribute('class', 'chordbox');
 	const chordcanvas = document.createElement("div");
