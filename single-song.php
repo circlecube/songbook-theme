@@ -19,7 +19,8 @@ get_header(); ?>
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 
 		<div class="entry-meta">
-			<?php songbook_posted_on(); ?>
+			<?php //songbook_posted_on(); ?>
+			<div id="chord_containter"></div>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 	
@@ -95,29 +96,49 @@ get_header(); ?>
 
 	<footer class="entry-meta">
 		<?php
-			//chords
-			// $chords = get_the_terms( $post->ID, 'chords' );
-			// if ( $chords && ! is_wp_error( $chords ) ) { 
-			// 	$chords_array = array();
-			// 	foreach ( $chords as $term ) {
-			// 		$chords_array[] = $term->name;
-			// 	}				
-			// 	$chords_string = join( " ", $chords_array );
-			// 	$shortcode = '[jtab phrase="' . $chords_string . '"]';
-			// 	//add guitar chords via custom field or taxonomy and do_shortcode or just use the jtab js.
-			// 	echo do_shortcode($shortcode);
-			// }
-			// echo '<div class="jtabs">';
-			// 	foreach ( $chords as $chord ) {
-			// 		$shortcode = '[jtab phrase="' . $chord . '"]';
-			// 		echo do_shortcode($shortcode);
-			// 	}				
-				//$chords_string = join( " ", $chords );
-				//$shortcode = '[jtab phrase="' . $chords_string . '"]';
-				//add guitar chords via custom field or taxonomy and do_shortcode or just use the jtab js.
-				//echo do_shortcode($shortcode);
-			// echo '</div>';
-			//genre
+			//chords - create vexchord data object to build chord charts
+			$chords = get_the_terms( $post->ID, 'chord' );
+			if ( $chords && ! is_wp_error( $chords ) ) { 
+				?>
+				<script>
+					var chordCharts = [<?php							
+					$chords_array = array();
+					foreach ( $chords as $term ) {
+					?>
+						{
+							name: '<?php echo $term->name; ?>',
+							edit_link: '<?php echo get_edit_term_link( $term->term_id, 'chord' );?>',
+							<?php //echo get_field( 'chord_data', $term ); ?>
+							chord: [<?php
+								if( have_rows( 'chord_chart', $term ) ):
+									$string_num = 1;
+									// Loop through rows.
+									while( have_rows( 'chord_chart', $term ) ) : the_row();
+										echo '[' . $string_num++ . ', ';
+										// Load sub field value.
+										$string = get_sub_field('string');
+										echo '"' . $string['fret'] . '"';
+										if ( '' !== $string['label'] ) {
+											echo ', ';
+											echo '"' . $string['label'] . '"';
+										}
+										echo ']';
+										if ( 6 >= $string_num )
+											echo ', ';
+									// End loop.
+									endwhile;
+
+								// No value.
+								else :
+									echo '[1,0],[2,0],[3,0],[4,0],[5,0],[6,0]';
+								endif;
+								?>],
+						},<?php
+					}
+					?>];
+				</script>
+				<?php
+			}
 
 			/* translators: used between list items, there is a space after the comma */
 			$category_list = get_the_category_list( __( ', ', 'songbook' ) );
@@ -144,27 +165,6 @@ get_header(); ?>
 		<?php edit_post_link( __( 'Edit', 'songbook' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-meta -->
 </article><!-- #post-## -->
-<?php
-/*
-		previous_post_link_plus( array(
-                    'order_by' => 'post_title',
-                    'before' => '<div class="nav-previous">',
-                    'after' => '</div>'
-        ) );
-		
-		next_post_link_plus( array(
-                    'order_by' => 'post_title',
-                    'before' => '<div class="nav-previous">',
-                    'after' => '</div>'
-        ) );
-*/
-			?>
-
-			<?php
-				// If comments are open or we have at least one comment, load up the comment template
-				if ( comments_open() || '0' != get_comments_number() )
-					comments_template();
-			?>
 
 		<?php endwhile; // end of the loop. ?>
 

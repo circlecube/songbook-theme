@@ -43,3 +43,59 @@ jQuery(document).ready(function($) {
 });
 
 const VEXTAB_USE_SVG = true;
+const ChordBox = vexchords.ChordBox;
+const chords = [];
+
+function createChordElement(chordStruct) {
+	const id = 'chord-'+chordStruct.name
+	const chordbox = document.createElement("div");
+	chordbox.setAttribute('class', 'chordbox');
+	const chordcanvas = document.createElement("div");
+	chordcanvas.setAttribute('id', id);
+	const chordname = document.createElement("div");
+	chordname.setAttribute('class', 'chordname');
+	chordname.textContent = chordStruct.name;
+	
+	chordbox.appendChild(chordname);
+	chordbox.appendChild(chordcanvas);
+	
+	if ( chordStruct.edit_link ) {
+		const chordeditlink = document.createElement("a");
+		chordeditlink.textContent = 'Edit ' + chordStruct.name;
+		chordeditlink.setAttribute('href', chordStruct.edit_link);
+		chordeditlink.setAttribute('class', 'chordeditlink');
+		chordbox.appendChild(chordeditlink);
+	}
+
+	chords.push({
+		el: '#'+id,
+		struct: chordStruct
+	});
+
+	return chordbox;
+}
+
+function init() {
+	var container = document.getElementById('chord_containter');
+	// console.log(chordCharts);
+	if ( chordCharts ) {
+		// Display preset chords (open chords)
+		for (var j = 0; j < chordCharts.length; ++j) {
+			if ( chordCharts[j].chord ) {
+				container.appendChild(createChordElement(chordCharts[j]));
+			}
+		}
+	}
+
+	// Render chords
+	chords.forEach(chord => {
+		console.log(chord.struct);
+		new ChordBox(chord.el, {
+			width: 130,
+			height: 150,
+			defaultColor: '#444'
+		}).draw(chord.struct);
+	});
+}
+
+init();
