@@ -47,6 +47,10 @@ const ChordBox = vexchords.ChordBox;
 const chords = [];
 
 function createChordElement(chordStruct) {
+	if ( !chordStruct.hasOwnProperty('id') || !chordStruct.hasOwnProperty('name') ) {
+		return;
+	}
+
 	const id = 'chord-'+chordStruct.id;
 	const chordbox = document.createElement("div");
 	chordbox.setAttribute('class', 'chordbox');
@@ -54,8 +58,20 @@ function createChordElement(chordStruct) {
 	chordcanvas.setAttribute('id', id);
 	const chordname = document.createElement("div");
 	chordname.setAttribute('class', 'chordname');
-	chordname.textContent = chordStruct.name;
 	
+	if ( chordStruct.archive_link ) {
+		const chordarchivelink = document.createElement("a");
+		if ( chordStruct.archive_text ) {
+			chordarchivelink.setAttribute( 'title', chordStruct.archive_text );
+		}
+		chordarchivelink.setAttribute( 'href', chordStruct.archive_link );
+		chordarchivelink.setAttribute( 'class', 'chordarchivelink' );
+		chordarchivelink.textContent = chordStruct.name;
+		chordname.appendChild(chordarchivelink);
+	} else {
+		chordname.textContent = chordStruct.name;
+	}
+
 	chordbox.appendChild(chordname);
 	chordbox.appendChild(chordcanvas);
 	
@@ -89,7 +105,7 @@ function init() {
 
 	// Render chords
 	chords.forEach(chord => {
-		console.log(chord.struct);
+		//console.log(chord.struct);
 		new ChordBox(chord.el, {
 			width: 130,
 			height: 150,
