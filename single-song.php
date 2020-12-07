@@ -61,6 +61,7 @@ get_header(); ?>
 						for ($i=0; $i<count($song_parts); $i++){
 							$song_part = $song_parts[$i];
 							if ( get_sub_field('song_repeat_title') == $song_part["title"] ) {
+								echo '<h3 class="song-part-title">'.$song_part["title"].'</h3>';
 								echo $song_part["chordpro"];
 							}
 						}
