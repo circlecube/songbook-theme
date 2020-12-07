@@ -140,6 +140,7 @@ function string_starts_with($haystack, $needle) {
 }
 
 add_action( 'save_post', 'add_chord_terms' );
+
 function add_chord_terms( $post_id ) {
     $post = get_post( $post_id ); // get post object
     $chords = [];
@@ -155,9 +156,11 @@ function add_chord_terms( $post_id ) {
 			}
 		}
 	}
-    if ($chords) {
-		//_log($chords);
-	    wp_set_object_terms( $post_id, $chords, 'chord', false );
+    if ($chords) { 
+		// only run if no current chords terms set
+		if ( ! has_term( '', 'chord' ) ) {
+			wp_set_object_terms( $post_id, $chords, 'chord', false );
+		}
 	}
 }
 function extract_chords($chords, $chordpro){
@@ -173,7 +176,7 @@ function extract_chords($chords, $chordpro){
 	    		array_push( $chords, $chordpro_o[0] );
 	    	}
 	    }
-		//_log($chords);
+		// _log($chords);
 	}
 
 	return $chords;
