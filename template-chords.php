@@ -21,7 +21,7 @@ get_header(); ?>
 			if ( $chords && ! is_wp_error( $chords ) ) { 
 				?>
 				<script>
-					var chordCharts = [<?php							
+					var CHORD_CHARTS = [<?php							
 					$chords_array = array();
 					foreach ( $chords as $term ) {
 					?>

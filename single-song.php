@@ -48,7 +48,7 @@ get_header(); ?>
 					//$song_part->chordpro = print_chordpro( get_sub_field('song_part_content') );
 					$song_parts[] = $song_part;
 					echo '<div class="chordpro-content">';
-					//echo '<h3>'.$song_part["title"].'</h3>';
+					echo '<h3 class="song-part-title">'.$song_part["title"].'</h3>';
 					echo $song_part["chordpro"];
 					echo '</div>';
 				}
@@ -101,7 +101,7 @@ get_header(); ?>
 			if ( $chords && ! is_wp_error( $chords ) ) { 
 				?>
 				<script>
-					var chordCharts = [<?php							
+					var CHORD_CHARTS = [<?php							
 					$chords_array = array();
 					foreach ( $chords as $term ) {
 					?>

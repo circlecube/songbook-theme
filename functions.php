@@ -5,6 +5,8 @@
  * @package songbook
  */
 
+define( 'SONGBOOK_THEME_VERSION', '2020.12.06' );
+
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
@@ -83,7 +85,7 @@ add_action( 'widgets_init', 'songbook_widgets_init' );
  * Enqueue scripts and styles
  */
 function songbook_scripts() {
-	wp_enqueue_style( 'songbook-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'songbook-style', get_stylesheet_uri(), array(), SONGBOOK_THEME_VERSION );
 	wp_register_style('mmenu', get_template_directory_uri() . '/js/mmenu-4.0.3/source/jquery.mmenu.all.css');
     wp_enqueue_style( 'mmenu');
 
@@ -92,7 +94,7 @@ function songbook_scripts() {
     wp_enqueue_script( 'songbook-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
 	wp_enqueue_script( 'vexchords', get_template_directory_uri() . '/js/vexchords.dev.js', array(), '3.0.6', true );
-	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery', 'vexchords' ), '20201008', true );
+	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery', 'vexchords' ), SONGBOOK_THEME_VERSION, true );
 	wp_enqueue_script( 'vextab', get_template_directory_uri() . '/js/vextab-div.prod.js', array( 'scripts' ), '3.0.6', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -210,27 +212,47 @@ function print_chordpro($chordpro){
 			$chordpro_html = '';
 			for ( $j = 0; $j < count($chordpro_lines); $j++) {
 				$chordpro_html .= '<div class="lyrics-line">';
-				if ( !string_starts_with($chordpro_lines[$j], '[') ){
-					$chordpro_lines[$j] = '[&nbsp;]' . $chordpro_lines[$j];
+				// if line doesn't start with chord, add an empty placeholder
+				if ( ! string_starts_with($chordpro_lines[$j], '[') ){
+					$chordpro_lines[$j] = '[]' . $chordpro_lines[$j];
 				}
 				//filter chordpro data
 				$chordpro_array = explode('[', $chordpro_lines[$j]);
 				//echo count($chordpro_array);
-				//print_r($chordpro_array);
+				// print_r($chordpro_array);
 
-				for ( $i = 0; $i < count($chordpro_array); $i++){
+				for ( $i = 1; $i < count($chordpro_array); $i++){
 				//foreach ($chord as $chordpro_array) {
-					//echo '<br />'.$i.', ' . $chordpro_array[$i];
+					// echo '<br />'.$i.', ' . $chordpro_array[$i];
+					// split on closing bracket ]
 					$chordpro_o = explode(']', $chordpro_array[$i]);
-					//print_r($chordpro_o);
-					$chordpro_html .= '<div class="chord-section"><div class="chord">';
-					if ( !in_array($chordpro_o[0], $chords) ){
-						array_push( $chords, $chordpro_o[0] );
+
+					$chord = $chordpro_o[0];
+					$lyric = $chordpro_o[1];
+					// print_r($chordpro_o);
+
+					// if data for at least one
+					if ( ! empty( $chord ) || ! empty( $lyric ) ) {
+
+						// add to chords array if not already there.
+						if ( !in_array($chordpro_o[0], $chords) ){
+							array_push( $chords, $chordpro_o[0] );
+						}
+						$chordpro_html .= '<div class="chord-section">';
+						if ( ! empty( $chord ) ) {
+							// $chordpro_html .= '';
+							$chordpro_html .= '<div class="chord"><span class="chord-content">';
+							$chordpro_html .= $chord;
+							$chordpro_html .= '</span></div>';
+						}
+						if ( ! empty( $lyric ) ) {
+							$chordpro_html .= '<div class="lyrics">';
+							$chordpro_html .= '<span class="lyric-content">';
+							$chordpro_html .= $lyric;
+							$chordpro_html .= '</span></div>';
+						}
+						$chordpro_html .= '</div>';
 					}
-					$chordpro_html .= $chordpro_o[0];
-					$chordpro_html .= '</div><div class="lyrics">';
-					$chordpro_html .= $chordpro_o[1];
-					$chordpro_html .= '</div></div>';
 				}
 				$chordpro_html .= '</div>';
 			}

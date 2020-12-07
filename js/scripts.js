@@ -93,12 +93,12 @@ function createChordElement(chordStruct) {
 
 function init() {
 	var container = document.getElementById('chord_containter');
-	// console.log(chordCharts);
-	if ( chordCharts ) {
+	// console.log(CHORD_CHARTS);
+	if ( CHORD_CHARTS ) {
 		// Display preset chords (open chords)
-		for (var j = 0; j < chordCharts.length; ++j) {
-			if ( chordCharts[j].chord ) {
-				container.appendChild(createChordElement(chordCharts[j]));
+		for (var j = 0; j < CHORD_CHARTS.length; ++j) {
+			if ( CHORD_CHARTS[j].chord ) {
+				container.appendChild(createChordElement(CHORD_CHARTS[j]));
 			}
 		}
 	}

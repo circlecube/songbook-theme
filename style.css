@@ -4,7 +4,7 @@ Theme URI: https://circlecube.com/music
 Author: Evan Mullins
 Author URI: http://circlecube.com/
 Description: Description
-Version: 1.6
+Version: 2020.12.06
 License: GNU General Public License
 License URI: license.txt
 Text Domain: songbook
@@ -330,7 +330,7 @@ a {
        -o-transition: all 0.2s ease-out;  /* Opera 10.5+ */
           transition: all 0.2s ease-out;
 }
-}
+
 a:visited {
 	color: purple;
 }
@@ -617,35 +617,58 @@ object {
 .page-title{
 	font-size:2em;
 }
+article.song {
+	padding: 2rem;
+}
 .chordpro-content{
-	overflow:hidden;
 	margin: 2em 0;
 }
+.song-part-title {
+	background-color: #eee;
+	display: inline-block;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: .32rem;
+	margin: 0 0 .5rem 0;
+	padding: 2px 4px;
+	text-transform: uppercase;
+}
 .lyrics-line {
-	clear:left;
-	float:left;
-	overflow:hidden;
+	display: flex;
+	flex-wrap: wrap;
 }
 .chord-section{
-	display:inline;
-	float:left;
+	display: flex;
+	flex-direction: column;
 }
-.chord-section .chord{
-	
+.chord-section .chord {
+	padding: 0 4px;
+}
+.chord-section .chord:empty {
+	background-color: transparent;
+}
+.chord-content {
+	background-color: #eee;
+	padding: 2px 4px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: bold;
 }
 .chord-section .lyrics{
+	padding: 0 4px;
+	margin-top: auto;
+}
+.lyric-content {
 	white-space: pre;
 }
 .site-main .song-list {
-	list-style:none;
+	list-style: none;
 	margin:0;
 	padding:0;
 }
 .site-main .song-list a {
-	display:block;
+	display: block;
 	padding: 1em;
 	background: #eee;
-	text-decoration:none;
+	text-decoration: none;
 	margin: .5em 0;
 }
 
@@ -654,7 +677,7 @@ object {
 .hide-chords .jtabs,
 .hide-chords .terms--chords,
 .hide-chords #chord_containter {
-	display:none;
+	display: none;
 }
 
 
@@ -731,6 +754,12 @@ object {
 .colorscheme_dark .vextab-auto text {
 	fill: #fff !important;
 }
+
+.colorscheme_dark .chord-section .chord-content,
+.colorscheme_dark .song-part-title   {
+	background-color: #111;
+}
+
 
 .vextab-auto text[font-family="Times"] {
 	display: none;
