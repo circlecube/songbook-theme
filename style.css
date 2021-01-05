@@ -420,7 +420,10 @@ a:active {
 /* =Content
 ----------------------------------------------- */
 
-.sticky {
+h1.alpha_index {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 4rem;
+	margin: 2rem 1rem .75rem;
 }
 .hentry {
 	margin: 0 0 1.5em;
