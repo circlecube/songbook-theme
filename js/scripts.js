@@ -6,47 +6,75 @@ jQuery(document).ready(function($) {
          position: "right"
       });
 
-
-	$('.show_chords').on('click', function(e){
-		$('body').toggleClass('hide-chords');
-		if( $('body').hasClass('hide-chords') ){
-			$(this).text('Show Chords');
-			localStorage.hide_chords = 'true';
-		}
-		else{
-			$(this).text('Hide Chords');
-			localStorage.hide_chords = 'false';
-		}
-	});
-
-	$('.colorscheme_dark').on('click', function(e){
+	/* OPTIONS */
+	// Color scheme
+	$('#options .dark_mode').on('click', function(e){
 		$('body').toggleClass('colorscheme_dark');
 		if( $('body').hasClass('colorscheme_dark') ){
-			$(this).text('Light');
+			$(this).text('✓ Dark Mode');
 			localStorage.colorscheme_dark = 'true';
 		}
 		else{
-			$(this).text('Dark');
+			$(this).text('✘ Dark Mode');
 			localStorage.colorscheme_dark = 'false';
 		}
 	});
-
-	if (localStorage.colorscheme_dark == 'true'){
+	if (localStorage.colorscheme_dark === 'true'){
 		$('body').addClass('colorscheme_dark');
-		$('#momenu .colorscheme_dark').text('Light');
-	}
-	if (localStorage.hide_chords == 'true'){
-		$('body').addClass('hide-chords');
-		$('#momenu .show_chords').text('Show Chords');
-	}
-	if (localStorage.hide_guitar == 'true'){
-		$('body').addClass('hide-guitar');
-		$('#momenu .guitar').text('Show Guitar');
+		$('#options .dark_mode').text('✓ Dark Mode');
 	}
 
-	// show chords inline
-	// show guitar chord charts
-	// show ukulele chord charts
+	// Show chords inline
+	$('#options .show_chords').on('click', function(e){
+		$('body').toggleClass('hide-chords');
+		if( $('body').hasClass('hide-chords') ){
+			$(this).text('✘ Inline Chords');
+			localStorage.hide_chords = 'true';
+		}
+		else{
+			$(this).text('✓ Inline Chords');
+			localStorage.hide_chords = 'false';
+		}
+	});
+	if (localStorage.hide_chords === 'true'){
+		$('body').addClass('hide-chords');
+		$('#options .show_chords').text('✘ Inline Chords');
+	}
+
+	// Guitar Chord Charts
+	$('#options .guitar').on('click', function(e){
+		$('body').toggleClass('hide_guitar');
+		if( $('body').hasClass('hide_guitar') ){
+			$(this).text('✘ Guitar Chords');
+			localStorage.hide_guitar = 'true';
+		}
+		else{
+			$(this).text('✓ Guitar Chords');
+			localStorage.hide_guitar = 'false';
+		}
+	});
+	if (localStorage.hide_guitar === 'true'){
+		$('body').addClass('hide_guitar');
+		$('#options .guitar').text('✘ Guitar Chords');
+	}
+
+	// Ukulele Chord Charts
+	$('#options .ukulele').on('click', function(e){
+		$('body').toggleClass('hide_ukulele');
+		if( $('body').hasClass('hide_ukulele') ){
+			$(this).text('✘ Ukulele Chords');
+			localStorage.hide_ukulele = 'true';
+		}
+		else{
+			$(this).text('✓ Ukulele Chords');
+			localStorage.hide_ukulele = 'false';
+		}
+	});
+	if (localStorage.hide_ukulele === 'true'){
+		$('body').addClass('hide_ukulele');
+		$('#options .ukulele').text('✘ Ukulele Chords');
+	}
+
 	// mandolin
 	// banjo
 
@@ -125,7 +153,7 @@ function init() {
 			}
 		}
 	}
-	
+
 	// Render chords
 	chords.forEach(chord => {
 		new ChordBox(chord.el, {

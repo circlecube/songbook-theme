@@ -15,7 +15,7 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-<link rel="manifest" href="manifest.json">
+<!-- <link rel="manifest" href="manifest.json"> -->
 
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -40,7 +40,7 @@
 		<div class="icon menu">
 				<a class="menu-toggle" href="#mmenu">
 				<span class="screen-reader-text"><?php _e( 'Menu', 'songbook' ); ?></span>
-				<span class="dashicons dashicons-menu">
+				<span class="icons icons-menu">
 					<svg 
 						version="1.1" 
 						xmlns="http://www.w3.org/2000/svg" 
@@ -62,7 +62,7 @@
 		</div>
 		<div class="icon options"><a class="menu-toggle options-toggle" href="#options">
 			<span class="screen-reader-text"><?php _e( 'Options', 'songbook' ); ?></span>
-			<span class="dashicons dashicons-admin-generic">
+			<span class="icons icons-admin-generic">
 				<svg 
 					version="1.1" 
 					xmlns="http://www.w3.org/2000/svg" 
@@ -82,10 +82,10 @@
 		</nav>
 		<nav id="options" role="navigation">
 			<ul>
-				<li><a href="#" class="show_chords">Hide Chords</a></li>
-				<li><a href="#" class="guitar">Guitar</a></li>
-				<li><a href="#" class="ukulele">Ukulele</a></li>
-				<li><a href="#" class="colorscheme_dark">Dark</a></li>
+				<li><a href="#" class="dark_mode">✘ Dark Mode</a></li>
+				<li><a href="#" class="show_chords">✓ Chords</a></li>
+				<li><a href="#" class="guitar">✓ Guitar Chords</a></li>
+				<li><a href="#" class="ukulele">✓ Ukulele Chords</a></li>
 			</ul>
 		</nav>
 	</header><!-- #masthead -->

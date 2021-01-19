@@ -576,23 +576,23 @@ object {
 .site-header .icon{
 	padding: 0 1rem;
 }
-.site-header .dashicons {
+.site-header .icons {
 	display: block;
 	height: 56px;
 	transition: transform 1s ease-in-out;
 	width: 3.5rem;
 }
-.mm-opening .dashicons-menu {
+.mm-opening .icons-menu {
 	transform: rotateZ(180deg);
 }
-.mm-opening.mm-right .dashicons-admin-generic {
+.mm-opening.mm-right .icons-admin-generic {
 	transform: rotateZ(375deg);
 }
-.dashicons svg {
+.icons svg {
 	height: 100%;
 	width: 100%;
 }
-.dashicons svg path {
+.icons svg path {
 	fill: #fff;
 }
 .entry-title,
@@ -655,14 +655,15 @@ article.song {
 }
 
 
-.hide-chords .chord,
-.hide-chords .jtabs,
-.hide-chords .terms--chords,
-.hide-chords .chord_container {
+.hide-chords .chord {
 	display: none;
 }
-
-
+.hide_guitar #chord_container_guitar {
+	display: none;
+}
+.hide_ukulele #chord_container_ukulele {
+	display: none;
+}
 
 
 .terms .sep{
@@ -693,7 +694,7 @@ article.song {
 	color: #eee;
 }
 
-.colorscheme_dark .dashicons svg path {
+.colorscheme_dark .icons svg path {
 	fill: #eee;
 }
 
