@@ -5,7 +5,7 @@
  * @package songbook
  */
 
-define( 'SONGBOOK_THEME_VERSION', '2020.12.07' );
+define( 'SONGBOOK_THEME_VERSION', '2021.01.19' );
 
 /**
  * Set the content width based on the theme's design and stylesheet.

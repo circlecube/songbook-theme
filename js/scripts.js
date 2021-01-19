@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
 	
 	$('#mmenu').mmenu();
 
-	$('#momenu').mmenu({
+	$('#options').mmenu({
          position: "right"
       });
 
@@ -112,17 +112,20 @@ function createChordElement(chordStruct, instrument) {
 function init() {
 	var container = document.getElementById('chord_container_guitar');
 	var container_uke = document.getElementById('chord_container_ukulele');
-	// console.log(CHORD_CHARTS);
+	// CHORD_CHARTS - loaded via php to inline script tag
+	// console.log( CHORD_CHARTS );
 	if ( CHORD_CHARTS ) {
 		// Display preset chords (open chords)
 		for (var j = 0; j < CHORD_CHARTS.length; ++j) {
-			if ( CHORD_CHARTS[j].chord ) {
+			if ( CHORD_CHARTS[j].guitar ) {
 				container.appendChild(createChordElement(CHORD_CHARTS[j], 'guitar' ));
+			}
+			if ( CHORD_CHARTS[j].ukulele ) {
 				container_uke.appendChild(createChordElement(CHORD_CHARTS[j], 'ukulele' ));
 			}
 		}
 	}
-
+	
 	// Render chords
 	chords.forEach(chord => {
 		new ChordBox(chord.el, {

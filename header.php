@@ -37,17 +37,50 @@
 <div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="site-header" role="banner">
-		<a class="menu-toggle" href="#mmenu"><?php _e( 'Menu', 'songbook' ); ?></a>
-		<div class="tools"><a class="menu-toggle options-toggle" href="#momenu"><?php _e( 'Options', 'songbook' ); ?></a></div>
+		<div class="icon menu">
+				<a class="menu-toggle" href="#mmenu">
+				<span class="screen-reader-text"><?php _e( 'Menu', 'songbook' ); ?></span>
+				<span class="dashicons dashicons-menu">
+					<svg 
+						version="1.1" 
+						xmlns="http://www.w3.org/2000/svg" 
+						xmlns:xlink="http://www.w3.org/1999/xlink" 
+						x="0px" 
+						y="0px" 
+						width="20" 
+						height="20" 
+						viewBox="0 0 20 20"
+					>
+						<path d="M3,15h14v-2H3V15z M3,5v2h14V5H3z M3,11h14V9H3V11z"/>
+					</svg>
+				</span>
+			</a>
+		</div>
 		<div class="site-branding">
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</div>
+		<div class="icon options"><a class="menu-toggle options-toggle" href="#options">
+			<span class="screen-reader-text"><?php _e( 'Options', 'songbook' ); ?></span>
+			<span class="dashicons dashicons-admin-generic">
+				<svg 
+					version="1.1" 
+					xmlns="http://www.w3.org/2000/svg" 
+					xmlns:xlink="http://www.w3.org/1999/xlink" 
+					width="20" 
+					height="20" 
+					x="0px" 
+					y="0px" 
+					viewBox="0 0 20 20"
+				>
+					<path d="M18 12h-2.18c-0.17 0.7-0.44 1.35-0.81 1.93l1.54 1.54-2.1 2.1-1.54-1.54c-0.58 0.36-1.23 0.63-1.91 0.79v2.18h-3v-2.18c-0.68-0.16-1.33-0.43-1.91-0.79l-1.54 1.54-2.12-2.12 1.54-1.54c-0.36-0.58-0.63-1.23-0.79-1.91h-2.18v-2.97h2.17c0.16-0.7 0.44-1.35 0.8-1.94l-1.54-1.54 2.1-2.1 1.54 1.54c0.58-0.37 1.24-0.64 1.93-0.81v-2.18h3v2.18c0.68 0.16 1.33 0.43 1.91 0.79l1.54-1.54 2.12 2.12-1.54 1.54c0.36 0.59 0.64 1.24 0.8 1.94h2.17v2.97zM9.5 13.5c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3z"></path>
+				</svg>
+			</span></a></div>
 
 		<nav id="mmenu" role="navigation">
 			<?php get_template_part( 'song', 'list' ); ?>
 		</nav>
-		<nav id="momenu" role="navigation">
+		<nav id="options" role="navigation">
 			<ul>
 				<li><a href="#" class="show_chords">Hide Chords</a></li>
 				<li><a href="#" class="guitar">Guitar</a></li>
