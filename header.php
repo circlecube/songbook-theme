@@ -50,6 +50,8 @@
 		<nav id="momenu" role="navigation">
 			<ul>
 				<li><a href="#" class="show_chords">Hide Chords</a></li>
+				<li><a href="#" class="guitar">Guitar</a></li>
+				<li><a href="#" class="ukulele">Ukulele</a></li>
 				<li><a href="#" class="colorscheme_dark">Dark</a></li>
 			</ul>
 		</nav>

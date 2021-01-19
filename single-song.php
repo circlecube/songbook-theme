@@ -20,7 +20,8 @@ get_header(); ?>
 
 		<div class="entry-meta">
 			<?php //songbook_posted_on(); ?>
-			<div id="chord_containter"></div>
+			<div id="chord_container_guitar" class="chord_container"></div>
+			<div id="chord_container_ukulele" class="chord_container"></div>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 	
@@ -110,8 +111,8 @@ get_header(); ?>
 							name: '<?php echo $term->name; ?>',
 							id: '<?php echo $term->term_id; ?>',
 							edit_link: '<?php echo get_edit_term_link( $term->term_id, 'chord' );?>',
-							<?php //echo get_field( 'chord_data', $term ); ?>
-							chord: [<?php
+							guitar: {
+								chord: [<?php
 								if( have_rows( 'chord_chart', $term ) ):
 									$string_num = 1;
 									// Loop through rows.
@@ -135,6 +136,41 @@ get_header(); ?>
 									echo '[1,0],[2,0],[3,0],[4,0],[5,0],[6,0]';
 								endif;
 								?>],
+								name: '<?php echo $term->name; ?>',
+								id: '<?php echo $term->term_id; ?>',
+								tuning: ['E', 'A', 'D', 'G', 'B', 'E'],
+								numStrings: 6,
+							},
+							ukulele: {
+								chord: [<?php
+								if( have_rows( 'chord_chart_uke', $term ) ):
+									$string_num = 1;
+									// Loop through rows.
+									while( have_rows( 'chord_chart_uke', $term ) ) : the_row();
+										echo '[' . $string_num++ . ', ';
+										// Load sub field value.
+										$string = get_sub_field('string');
+										echo '"' . $string['fret'] . '"';
+										if ( '' !== $string['label'] ) {
+											echo ', ';
+											echo '"' . $string['label'] . '"';
+										}
+										echo ']';
+										if ( 6 >= $string_num )
+											echo ', ';
+									// End loop.
+									endwhile;
+
+								// No value.
+								else :
+									echo '[1,0],[2,0],[3,0],[4,0]';
+								endif;
+								?>],
+								name: '<?php echo $term->name; ?>',
+								id: '<?php echo $term->term_id; ?>',
+								tuning: ['G', 'C', 'E', 'A'],
+								numStrings: 4,
+							},
 						},<?php
 					}
 					?>];

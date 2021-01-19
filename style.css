@@ -679,7 +679,7 @@ article.song {
 .hide-chords .chord,
 .hide-chords .jtabs,
 .hide-chords .terms--chords,
-.hide-chords #chord_containter {
+.hide-chords .chord_container {
 	display: none;
 }
 
@@ -777,7 +777,7 @@ article.song {
 }
 
 /* vexchords */
-#chord_containter {
+.chord_container {
 	overflow: hidden;
 	clear: both;
 }

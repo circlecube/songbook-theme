@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_5f7dbe079294c",
-            "label": "Chord Chart",
+            "label": "Guitar Chord Chart",
             "name": "chord_chart",
             "type": "repeater",
             "instructions": "From small string to largest: eBGDAE. Indicate the fret for this string and optionally add a label (finger number or open string note). 0 indicates open string, x indicates a muted string.",
@@ -77,6 +77,82 @@
                     ]
                 }
             ]
+        },
+        {
+            "key": "field_5ff4ace7e87ee",
+            "label": "Ukulele Chord Chart",
+            "name": "chord_chart_uke",
+            "type": "repeater",
+            "instructions": "From small string to largest: gCEA. Indicate the fret for this string and optionally add a label (finger number or open string note). 0 indicates open string, x indicates a muted string.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 4,
+            "max": 4,
+            "layout": "block",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5ff4ace7e87ef",
+                    "label": "String",
+                    "name": "string",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "sub_fields": [
+                        {
+                            "key": "field_5ff4ace7e87f0",
+                            "label": "Fret",
+                            "name": "fret",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5ff4ace7e87f1",
+                            "label": "Label",
+                            "name": "label",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "location": [
@@ -96,5 +172,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1602090920
+    "modified": 1609871005
 }

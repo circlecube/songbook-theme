@@ -39,6 +39,16 @@ jQuery(document).ready(function($) {
 		$('body').addClass('hide-chords');
 		$('#momenu .show_chords').text('Show Chords');
 	}
+	if (localStorage.hide_guitar == 'true'){
+		$('body').addClass('hide-guitar');
+		$('#momenu .guitar').text('Show Guitar');
+	}
+
+	// show chords inline
+	// show guitar chord charts
+	// show ukulele chord charts
+	// mandolin
+	// banjo
 
 });
 
@@ -46,12 +56,12 @@ const VEXTAB_USE_SVG = true;
 const ChordBox = vexchords.ChordBox;
 const chords = [];
 
-function createChordElement(chordStruct) {
+function createChordElement(chordStruct, instrument) {
 	if ( !chordStruct.hasOwnProperty('id') || !chordStruct.hasOwnProperty('name') ) {
 		return;
 	}
 
-	const id = 'chord-'+chordStruct.id;
+	const id = 'chord-' + chordStruct.id + '-' + instrument;
 	const chordbox = document.createElement("div");
 	chordbox.setAttribute('class', 'chordbox');
 	const chordcanvas = document.createElement("div");
@@ -83,33 +93,44 @@ function createChordElement(chordStruct) {
 		chordbox.appendChild(chordeditlink);
 	}
 
-	chords.push({
+	var instrument_chord_obj = {
 		el: '#'+id,
-		struct: chordStruct
-	});
+		instrument: instrument
+	};
+
+	if ( 'ukulele' === instrument ) {
+		instrument_chord_obj.struct = chordStruct.ukulele;
+	} else {
+		instrument_chord_obj.struct = chordStruct.guitar;	
+	}
+
+	chords.push(instrument_chord_obj);
 
 	return chordbox;
 }
 
 function init() {
-	var container = document.getElementById('chord_containter');
+	var container = document.getElementById('chord_container_guitar');
+	var container_uke = document.getElementById('chord_container_ukulele');
 	// console.log(CHORD_CHARTS);
 	if ( CHORD_CHARTS ) {
 		// Display preset chords (open chords)
 		for (var j = 0; j < CHORD_CHARTS.length; ++j) {
 			if ( CHORD_CHARTS[j].chord ) {
-				container.appendChild(createChordElement(CHORD_CHARTS[j]));
+				container.appendChild(createChordElement(CHORD_CHARTS[j], 'guitar' ));
+				container_uke.appendChild(createChordElement(CHORD_CHARTS[j], 'ukulele' ));
 			}
 		}
 	}
 
 	// Render chords
 	chords.forEach(chord => {
-		//console.log(chord.struct);
 		new ChordBox(chord.el, {
 			width: 130,
 			height: 150,
-			defaultColor: '#444'
+			defaultColor: '#444',
+			tuning: chord.struct.tuning,
+			numStrings: chord.struct.numStrings,
 		}).draw(chord.struct);
 	});
 }
