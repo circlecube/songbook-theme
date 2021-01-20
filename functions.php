@@ -5,7 +5,7 @@
  * @package songbook
  */
 
-define( 'SONGBOOK_THEME_VERSION', '2021.01.19' );
+define( 'SONGBOOK_THEME_VERSION', wp_get_theme()->get('Version') );
 
 /**
  * Set the content width based on the theme's design and stylesheet.
