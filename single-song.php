@@ -17,11 +17,15 @@ get_header(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
-
+		<h2 class="entry-subtitle artist">By <?php echo get_the_term_list( $post->ID, 'artist' ); ?></h2>
 		<div class="entry-meta">
 			<?php //songbook_posted_on(); ?>
-			<div id="chord_container_guitar" class="chord_container"></div>
-			<div id="chord_container_ukulele" class="chord_container"></div>
+			<div id="chord_container_guitar" class="chord_container">
+				<h3>Guitar</h3>
+			</div>
+			<div id="chord_container_ukulele" class="chord_container">
+				<h3>Ukulele</h3>
+			</div>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 	

@@ -13,7 +13,7 @@ get_header(); ?>
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-		<h1>All Songs</h1>
+		<h1 class="page-title">All Songs</h1>
 		<?php get_template_part( 'song', 'list', array(
 			'index' =>   true,
 			'show_artists' => true,
