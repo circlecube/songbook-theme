@@ -18,8 +18,10 @@ get_header(); ?>
 			'index' =>   true,
 			'show_artists' => true,
 		) ); ?>
-<?php /*
-		<h1>By Artist</h1>
+
+		<hr style="margin: 10rem 0 4rem;" />
+
+		<h1 class="page-title">Popular Artists</h1>
 		<ul class="song-list">
 		<?php 
 		$artists = get_terms( array(
@@ -30,6 +32,10 @@ get_header(); ?>
 		) );
 		if( !empty($artists)) {
 			foreach( $artists as $artist ) {
+				if ( 
+					$artist->count > 1 &&
+					$artist->name !== 'Traditional'
+				) {
 				?>
 				<li><h1 class="alpha_index"><?php echo $artist->name; ?></h1></li>
 
@@ -37,10 +43,11 @@ get_header(); ?>
 					'artist' => $artist->slug,
 				) ); ?>
 				<?php
+				}
 			}
 		}
 		?>
-*/ ?>
+
 		</main><!-- #main -->
 	</section><!-- #primary -->
 
