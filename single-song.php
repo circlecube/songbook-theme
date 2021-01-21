@@ -17,7 +17,7 @@ get_header(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
-		<h2 class="entry-subtitle artist">By <?php echo get_the_term_list( $post->ID, 'artist' ); ?></h2>
+		<h2 class="entry-subtitle artist">By <?php echo get_the_term_list( $post->ID, 'artist', '', ', ', '' ); ?></h2>
 		<div class="entry-meta">
 			<?php //songbook_posted_on(); ?>
 			<div id="chord_container_guitar" class="chord_container">
@@ -66,7 +66,7 @@ get_header(); ?>
 						for ($i=0; $i<count($song_parts); $i++){
 							$song_part = $song_parts[$i];
 							if ( get_sub_field('song_repeat_title') == $song_part["title"] ) {
-								echo '<h3 class="song-part-title">'.$song_part["title"].'</h3>';
+								echo '<h3 class="song-part-title">'.$song_part["title"].' *</h3>';
 								echo $song_part["chordpro"];
 							}
 						}
