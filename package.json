@@ -1,0 +1,33 @@
+{
+  "name": "songbook-theme",
+  "version": "1.0.0",
+  "description": "Songbook wordpress theme",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/circlecube/songbook-theme.git"
+  },
+  "author": "Evan Mullins",
+  "license": "GPL-2.0+",
+  "bugs": {
+    "url": "https://github.com/circlecube/songbook-theme/issues"
+  },
+  "homepage": "https://github.com/circlecube/songbook-theme#readme",
+  "dependencies": {
+    "vexchords": "^1.2.0",
+    "vextab": "^3.0.6"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-watch-reload": "^1.0.3"
+  },
+  "scripts": {
+    "develop": "parcel src/scripts.js",
+    "watch": "parcel src/scripts.js",
+    "build": "parcel build src/scripts.js --public-url /music/wp-content/themes/songbook-theme/dist/",
+    "clean": "rm -rf .cache/ dist/"
+  },
+  "watchreload": {
+    "files": "**/*.php"
+  }
+}

@@ -90,10 +90,10 @@ function songbook_scripts() {
     wp_enqueue_style( 'mmenu');
 
     wp_enqueue_script( 'mmenu', get_template_directory_uri() . '/js/mmenu-4.0.3/source/jquery.mmenu.min.all.js', array( 'jquery' ), '20131108', true );
-    wp_enqueue_script( 'songbook-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-	wp_enqueue_script( 'vexchords', get_template_directory_uri() . '/js/vexchords.dev.js', array(), '3.0.6', true );
-	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery', 'mmenu', 'vexchords' ), SONGBOOK_THEME_VERSION, true );
-	wp_enqueue_script( 'vextab', get_template_directory_uri() . '/js/vextab-div.prod.js', array( 'scripts' ), '3.0.6', true );
+	
+	wp_enqueue_script( 'scripts-bundled', get_template_directory_uri() . '/dist/scripts.js',  array( 'jquery', 'mmenu' ), SONGBOOK_THEME_VERSION, true );
+	
+	wp_enqueue_script( 'vextab', get_template_directory_uri() . '/js/vextab-div.prod.js', array( 'scripts-bundled' ), '3.0.6', true );
 
 }
 add_action( 'wp_enqueue_scripts', 'songbook_scripts' );
