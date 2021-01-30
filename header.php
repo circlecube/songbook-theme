@@ -78,8 +78,18 @@
 			</span></a></div>
 
 		<nav id="mmenu" role="navigation">
-			<?php get_template_part( 'song', 'list' ); ?>
+			<?php
+			$songbook_nav_tr = 'songbook-nav-songs';
+			if ( false === ( $nav_songs = get_transient( $songbook_nav_tr ) ) ) {
+				ob_start();
+				get_template_part( 'song', 'list' );
+				$nav_songs = ob_get_clean();
+				set_transient( $songbook_nav_tr, $nav_songs, HOUR_IN_SECONDS );
+			}
+			echo $nav_songs;
+			?>	
 		</nav>
+
 		<nav id="options" role="navigation">
 			<ul>
 				<li><a href="#" class="dark_mode">✘ Dark Mode</a></li>

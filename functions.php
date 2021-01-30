@@ -85,7 +85,7 @@ add_action( 'widgets_init', 'songbook_widgets_init' );
  * Enqueue scripts and styles
  */
 function songbook_scripts() {
-	wp_enqueue_style( 'songbook-style', get_stylesheet_uri(), array(), SONGBOOK_THEME_VERSION );
+	wp_enqueue_style( 'songbook-style', get_template_directory_uri() . '/dist/style.css', array(), SONGBOOK_THEME_VERSION );
 	wp_register_style('mmenu', get_template_directory_uri() . '/js/mmenu-4.0.3/source/jquery.mmenu.all.css');
     wp_enqueue_style( 'mmenu');
 
@@ -267,3 +267,29 @@ function json_api_prepare_post( $post_response, $post, $context ) {
 }
 add_filter( 'json_prepare_post', 'json_api_prepare_post', 10, 3 );
 
+
+
+// function templateCache( $template_path, $template_name ) {
+// 	$cache_key = 'templateCache-'. $template_path . $template_name;
+// 	if ( false === ( $output = get_transient( $cache_key ) ) ) {
+// 		ob_start();
+// 		get_template_part( $template_path, $template_name );
+// 		$output = ob_get_clean();
+// 		set_transient( $cache_key, $output, WEEK_IN_SECONDS );
+// 	}
+// 	echo $output;
+// }
+
+
+// post save hook to clear transients
+add_action('save_post','songbook_save_post_callback');
+function songbook_save_post_callback($post_id){
+    global $post; 
+    if ($post->post_type != 'song'){
+        return;
+    }
+	//song post type - clear transients
+	delete_transient( 'songbook-all-songs-artists' );
+	delete_transient( 'songbook-popular-artists' );
+	delete_transient( 'songbook-nav-songs' );
+}

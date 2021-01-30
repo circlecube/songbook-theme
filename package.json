@@ -24,7 +24,7 @@
   "scripts": {
     "develop": "parcel src/scripts.js",
     "watch": "parcel src/scripts.js",
-    "build": "parcel build src/scripts.js --public-url /music/wp-content/themes/songbook-theme/dist/",
+    "build": "parcel build src/style.css src/scripts.js --public-url /music/wp-content/themes/songbook-theme/dist/",
     "clean": "rm -rf .cache/ dist/"
   },
   "watchreload": {

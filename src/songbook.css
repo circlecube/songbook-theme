@@ -1,0 +1,165 @@
+
+/* = Custom Theme Styles
+----------------------------------------------- */
+#masthead {
+	background: #3366ee;
+	display: flex;
+	justify-content: space-between;
+}
+.site-branding {
+	float:left;
+}
+.site-title a{
+	color:#fff;
+	display:block;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	padding: 1em 0;
+	text-decoration:none;
+}
+.menu-toggle {
+	color: #fff;
+    cursor: pointer;
+}
+.site-header .icon{
+	padding: 0 1rem;
+}
+.site-header .icons {
+	display: block;
+	height: 56px;
+	transition: transform 1s ease-in-out;
+	width: 3.5rem;
+}
+.mm-opening .icons-menu {
+	transform: rotateZ(180deg);
+}
+.mm-opening.mm-right .icons-admin-generic {
+	transform: rotateZ(375deg);
+}
+.icons svg {
+	height: 100%;
+	width: 100%;
+}
+.icons svg path {
+	fill: #fff;
+}
+.entry-title,
+.page-title {
+	font-size: 2em;
+}
+.page-title {
+	margin: 0 1rem 1rem;
+}
+.entry-subtitle {
+	font-size: 1.5em;
+	margin-bottom: 1.5em;
+}
+article.song {
+	padding: 2rem;
+}
+.chordpro-content{
+	margin: 2em 0;
+}
+.song-part-title {
+	background-color: #eee;
+	display: inline-block;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: .32rem;
+	margin: 0 0 .5rem 0;
+	padding: 2px 4px;
+	text-transform: uppercase;
+}
+.lyrics-line {
+	display: flex;
+	flex-wrap: wrap;
+}
+.chord-section{
+	display: flex;
+	flex-direction: column;
+}
+.chord-section .chord {
+	padding: 0 4px;
+}
+.chord-section .chord:empty {
+	background-color: transparent;
+}
+.chord-content {
+	background-color: #eee;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: bold;
+	padding: 2px 4px;
+	margin-left: -6px;
+}
+.chord-section .lyrics{
+	margin-top: auto;
+	padding: 0;
+}
+.lyric-content {
+	white-space: pre;
+}
+.site-main .song-list {
+	list-style: none;
+	margin:0;
+	padding:0;
+}
+.site-main .song-list a {
+	background: #eee;
+	display: block;
+	margin: .5em 0;
+	padding: 1em;
+	text-decoration: none;
+}
+
+.terms .sep{
+	/*display:none;*/
+}
+.jtabs{
+	overflow:hidden;
+}
+.jtab{
+	float:left;
+}
+.vextab-auto text[font-family="Times"] {
+	display: none;
+}
+
+.vextab-auto .editor {
+	display: none;
+}
+/* vexchords */
+.chord_container {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+}
+.chord_container h3 {
+	align-self: flex-start;
+	font-family: cursive;
+	font-size: 22px;
+	margin-right: auto;
+}
+.chordname {
+	font-family: cursive;
+	font-size: 22px;
+	margin: auto;
+	text-align: center;
+	width: 80%;
+}
+.chordeditlink {
+	display: none;
+	text-align: center;
+}
+.admin-bar .chordeditlink {
+	display: block;
+}
+
+/* OPTIONS */
+.hide-chords .chord {
+	display: none;
+}
+.hide_guitar #chord_container_guitar {
+	display: none;
+}
+.hide_ukulele #chord_container_ukulele {
+	display: none;
+}

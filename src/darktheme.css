@@ -1,0 +1,71 @@
+/*
+	Dark Color Scheme
+*/
+.colorscheme_dark {
+	background: #000;
+	color:#fff;
+}
+.colorscheme_dark #masthead {
+	background: #111;
+}
+.colorscheme_dark a {
+	color: #eee;
+}
+
+.colorscheme_dark .icons svg path {
+	fill: #eee;
+}
+
+.colorscheme_dark .site-main .song-list a {
+	background: #222;
+}
+
+.colorscheme_dark .vextab-auto svg path[fill="black"],
+.colorscheme_dark .vextab-auto svg rect[fill="black"] {
+	fill: #fff !important;
+}
+.colorscheme_dark .vextab-auto svg path[stroke="black"],
+.colorscheme_dark .vextab-auto svg rect[stroke="black"] {
+	stroke: #fff !important;
+}
+
+.colorscheme_dark .chordbox circle[stroke="#444444"][fill="#444444"] {
+	fill: #eee !important;
+	stroke: #eee !important;
+}
+.colorscheme_dark .chordbox circle[stroke="#444444"][fill="#ffffff"] {
+	fill: #000000 !important;
+	stroke: #eee !important;
+}
+
+.colorscheme_dark .chordbox line[stroke="#444444"],
+.colorscheme_dark .chordbox rect[stroke="#444444"] {
+	stroke: #eee !important;
+}
+
+.colorscheme_dark .chordbox text[stroke="#444444"][fill="#444444"] {
+	fill: #eee !important;
+	stroke: #eee !important;
+}
+.colorscheme_dark .chordbox  circle[fill="#ffffff"] + text tspan {
+	fill: #eee !important;
+	stroke: #eee !important;
+}
+.colorscheme_dark .chordbox  circle[fill="#444444"] + text tspan {
+	fill: #111 !important;
+	stroke: #111 !important;
+}
+
+.colorscheme_dark .vextab-auto text {
+	fill: #fff !important;
+}
+
+.colorscheme_dark .chord-section .chord-content,
+.colorscheme_dark .song-part-title   {
+	background-color: #111;
+}
+
+.colorscheme_dark .vextab-auto .editor {
+	background: #111;
+	color: #fff;
+}

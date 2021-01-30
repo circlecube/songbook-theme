@@ -46,7 +46,10 @@ if ( $song_query->have_posts() ) {
 
 		if ( $args['index'] && $alpha_count !== $alpha_title ) {
 			$alpha_count = $alpha_title;
-			echo '<li class="alpha_count_'.$alpha_count.'"><h1 class="alpha_index">' . $alpha_count . '</h1></li>';
+			if ( 'A' !== $alpha_count ) { // close previous letter
+				echo '</ul></li>';
+			}
+			echo '<li class="alpha_count_'.$alpha_count.'"><h1 class="alpha_index">' . $alpha_count . '</h1><ul class="song-list">';
 		}
 
 		if ( $args['show_artists'] ) {
@@ -69,6 +72,9 @@ if ( $song_query->have_posts() ) {
 			</li>
 		<?php
 	} //endwhile
+	if ( $args['index'] ) { //close last letter
+		echo '</ul></li>';
+	}
 	echo '</ul>';
 } //endif 
 
